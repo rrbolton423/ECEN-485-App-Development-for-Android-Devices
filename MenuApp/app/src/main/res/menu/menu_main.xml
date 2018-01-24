@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.romellbolton.menuapp.MainActivity">
+    <item
+        android:id="@+id/green_item"
+        android:title="@string/Green"/>
+    <item
+        android:id="@+id/blue_item"
+        android:title="@string/Blue"/>
+    <item
+        android:id="@+id/red_item"
+        android:title="@string/Red"/>
+</menu>
