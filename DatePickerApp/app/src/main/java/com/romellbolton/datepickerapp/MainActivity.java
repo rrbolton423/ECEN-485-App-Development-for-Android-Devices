@@ -16,35 +16,37 @@ import java.util.Calendar;
 public class MainActivity extends Activity {
 
     // Declare a DateFormat object
-    DateFormat fmtDateAndTime = DateFormat.getDateTimeInstance();
+    DateFormat mDateFormat = DateFormat.getDateTimeInstance();
 
     // Declare a TextView to display the date and time
-    TextView dateAndTimeLabel;
+    TextView mDateAndTimeLabel;
 
-    // Get an instance of a Calendar
-    Calendar dateAndTime = Calendar.getInstance();
+    // Get an instance of a Calendar, and the current time
+    Calendar mCalendar = Calendar.getInstance();
 
-    // Define a new DatePickerDialog, and set an OnDateSetListener() interface on it
-    DatePickerDialog.OnDateSetListener datePickerDialog = new DatePickerDialog.OnDateSetListener() {
+    // Define a new DatePickerDialog Listener object
+    DatePickerDialog.OnDateSetListener datePickerDialogListener = new DatePickerDialog.OnDateSetListener() {
+
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-            // Update the Calendar object "dateAndTime" with the Year, Month, and Day selected on the Dialog
-            dateAndTime.set(Calendar.YEAR, year);
-            dateAndTime.set(Calendar.MONTH, monthOfYear);
-            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            // Update the Calendar object "mCalendar" with the Year, Month, and Day selected on the Dialog
+            mCalendar.set(Calendar.YEAR, year);
+            mCalendar.set(Calendar.MONTH, monthOfYear);
+            mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
             // Update the TextView displaying the results
             updateLabel();
         }
     };
 
-    // Define a new TimePickerDialog, and set an OnDateSetListener() interface on it
-    TimePickerDialog.OnTimeSetListener timePickerDialog = new TimePickerDialog.OnTimeSetListener() {
+    // Define a new TimePickerDialog Listener object
+    TimePickerDialog.OnTimeSetListener timePickerDialogListener = new TimePickerDialog.OnTimeSetListener() {
+
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
-            // Update the Calendar object "dateAndTime" with the hour and minute selected on the Dialog
-            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
-            dateAndTime.set(Calendar.MINUTE, minute);
+            // Update the Calendar object "mCalendar" with the hour and minute selected on the Dialog
+            mCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            mCalendar.set(Calendar.MINUTE, minute);
 
             // Update the TextView displaying the results
             updateLabel();
@@ -61,23 +63,25 @@ public class MainActivity extends Activity {
         // Inflate the date button
         Button dateBtn = (Button) findViewById(R.id.dateBtn);
 
-        // Set a listener on the date button to load a DatePickerDialog on screen
+        // Set a listener on the date button to load a DatePickerDialog onscreen
         dateBtn.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View v) {
 
                 // Instantiate a new DatePickerDialog, passing in the context,
-                // the defined datePickerDialog object, and the calendar's information
+                // the defined datePickerDialogListener object, and the calendar's information
                 new DatePickerDialog(
                         // Activity
                         MainActivity.this,
-                        // The DatePickerDialog object we defined
-                        datePickerDialog,
-                        // Get the year from the Calendar
-                        dateAndTime.get(Calendar.YEAR),
-                        // Get the month from the Calendar
-                        dateAndTime.get(Calendar.MONTH),
-                        // Get the day from the Calendar
-                        dateAndTime.get(Calendar.DAY_OF_MONTH))
+                        // The DatePickerDialog Listener object we defined,
+                        // to set the selected time onto the calendar object
+                        datePickerDialogListener,
+                        // Get the year data that was last set on the Calendar object to display in the Dialog
+                        mCalendar.get(Calendar.YEAR),
+                        // Get the month data that was last set on the Calendar object to display in the Dialog
+                        mCalendar.get(Calendar.MONTH),
+                        // Get the day data that was last set on the Calendar object to display in the Dialog
+                        mCalendar.get(Calendar.DAY_OF_MONTH))
                         // Show the dialog
                         .show();
             }
@@ -86,21 +90,23 @@ public class MainActivity extends Activity {
         // Inflate the time button
         Button timeBtn = (Button) findViewById(R.id.timeBtn);
 
-        // Set a listener on the time button to load a TimePickerDialog on screen
+        // Set a listener on the time button to load a TimePickerDialog onscreen
         timeBtn.setOnClickListener(new View.OnClickListener() {
 
             // Instantiate a new TimePickerDialog, passing in the context,
-            // the defined timePickerDialog object, and the calendar's information
+            // the defined timePickerDialogListener object, and the calendar's information
             public void onClick(View v) {
+
                 new TimePickerDialog(
                         // Activity
                         MainActivity.this,
-                        // The TimePickerDialog object we defined
-                        timePickerDialog,
-                        // Get the hour from the Calendar
-                        dateAndTime.get(Calendar.HOUR_OF_DAY),
-                        // Get the minute from the Calendar
-                        dateAndTime.get(Calendar.MINUTE),
+                        // The TimePickerDialog Listener object we defined,
+                        // to set the selected time onto the calendar object
+                        timePickerDialogListener,
+                        // Get the hour data that was last set on the Calendar object to display in the Dialog
+                        mCalendar.get(Calendar.HOUR_OF_DAY),
+                        // Get the minute data that was last set on the Calendar object to display in the Dialog
+                        mCalendar.get(Calendar.MINUTE),
                         // Set 24 Hour View
                         true)
                         // Show the dialog
@@ -109,9 +115,9 @@ public class MainActivity extends Activity {
         });
 
         // Inflate the result label
-        dateAndTimeLabel = (TextView) findViewById(R.id.dateAndTime);
+        mDateAndTimeLabel = (TextView) findViewById(R.id.dateAndTime);
 
-        // Update the result label
+        // Update the result label, with the default Calendar time on start up
         updateLabel();
     }
 
@@ -119,8 +125,10 @@ public class MainActivity extends Activity {
     private void updateLabel() {
 
         // Set the result label's text to the time that was set on the dataAndTime Calendar object
-        dateAndTimeLabel.setText(fmtDateAndTime
+        mDateAndTimeLabel.setText(
+
                 // Use the DateFormat object to properly format the time selected
-                .format(dateAndTime.getTime()));
+                mDateFormat.format(mCalendar.getTime())
+        );
     }
 }
