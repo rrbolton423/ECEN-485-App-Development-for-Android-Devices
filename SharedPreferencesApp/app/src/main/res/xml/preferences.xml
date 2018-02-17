@@ -1,0 +1,44 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Simple Preferences">
+        <CheckBoxPreference
+            android:key="checkbox"
+            android:summary="Check it on, check it off"
+            android:title="Checkbox Preference"
+            />
+        <RingtonePreference
+            android:key="ringtone"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:summary="Pick a tone, any tone"
+            android:title="Ringtone Preference"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Detail Screens">
+        <PreferenceScreen
+            android:key="detail"
+            android:summary="Additional preferences held in another page"
+            android:title="Detail Screen">
+            <CheckBoxPreference
+                android:key="checkbox2"
+                android:summary="On. Off. It really doesn't matter."
+                android:title="Another Checkbox"
+                />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Other Preferences">
+        <EditTextPreference
+            android:dialogTitle="Enter something useful"
+            android:key="text"
+            android:summary="Click to pop up a field for entry"
+            android:title="Text Entry Dialog"
+            />
+        <ListPreference
+            android:dialogTitle="Choose a Pennsylvania city"
+            android:entries="@array/cities"
+            android:entryValues="@array/airport_codes"
+            android:key="list"
+            android:summary="Click to pop up a list to choose from"
+            android:title="Selection Dialog"/>
+    </PreferenceCategory>
+</PreferenceScreen>
