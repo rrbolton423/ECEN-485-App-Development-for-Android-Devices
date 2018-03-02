@@ -1,4 +1,0 @@
-#Mon Feb 05 16:31:52 EST 2018
-base.0=/Users/romellbolton/Documents/ECEN485/GUIAppV3/app/build/intermediates/transforms/dexMerger/debug/10
-path.0=classes.dex
-renamed.0=classes.dex
