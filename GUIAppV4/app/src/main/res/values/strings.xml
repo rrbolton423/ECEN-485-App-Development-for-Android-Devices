@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">GUIAppV4</string>
-    <string name="numbers">NUMBERS</string>
-    <string name="letters">LETTERS</string>
-    <string name="text">TEXT</string>
-    <string name="action_settings">Settings</string>
-</resources>
