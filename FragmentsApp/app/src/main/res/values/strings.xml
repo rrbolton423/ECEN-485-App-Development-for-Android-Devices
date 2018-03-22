@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FragmentsApp</string>
+    <string name="this_is_fragment_no_1">This is fragment No.1</string>
+    <string name="this_is_fragment_no_2">This is fragment No.2</string>
+    <string name="fragment_no_1">Fragment No.1</string>
+    <string name="fragment_no_2">Fragment No.2</string>
+</resources>
