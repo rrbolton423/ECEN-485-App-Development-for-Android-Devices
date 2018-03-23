@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             this.myList = list;
         }
 
-        // Called when RecyclerView needs a new view
+        // Called when RecyclerView needs a new ViewHolder containing a TextView
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Called by RecyclerView to display the data at the specified position.
-        // This method should update the contents of the views
+        // This method should update the contents of the TextView in the current ViewHolder
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
 
