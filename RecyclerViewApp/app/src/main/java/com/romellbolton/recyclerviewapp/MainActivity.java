@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Layout Manager in the RecyclerView
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        // Create Adapter object from the data by calling default Constructor
+        // Create RecyclerViewAdapter object, passing it a list of data
         mRecyclerViewAdapter = new RecyclerViewAdapter(getTestListItems());
 
         // Set RecyclerView Adapter
