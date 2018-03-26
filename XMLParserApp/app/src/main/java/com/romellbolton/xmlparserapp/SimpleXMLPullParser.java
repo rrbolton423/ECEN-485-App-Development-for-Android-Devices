@@ -40,7 +40,7 @@ public class SimpleXMLPullParser {
     }
 
     // Method returns a list of employees, and
-    // receives an XML file in the form of
+    // receives an XML file in the form of an input stream
     public List<Employee> parse(InputStream is) {
 
         // Create XML Parser and factory objects and initialize them to null
