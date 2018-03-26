@@ -1,7 +1,9 @@
 package com.romellbolton.notificationapp;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -40,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
                         .setContentTitle("Notification")
                         .setContentText("This is a notification")
                         .setContentInfo("INFO");
+
+                // Create a Pending Intent so when the notification is clicked,
+                // it launches the activity that responds to the notification
+                Intent notificationIntent = new Intent(getApplicationContext(), NotificationView.class);
+                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                b.setContentIntent(contentIntent);
 
                 // Create the NotificationManager
                 NotificationManager nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
