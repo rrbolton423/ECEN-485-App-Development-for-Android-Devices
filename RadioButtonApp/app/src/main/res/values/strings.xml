@@ -1,0 +1,7 @@
+<resources>
+<string name="hello">Hello World, MyAndroidAppActivity!</string>
+<string name="app_name">RadioButtonApp</string>
+<string name="radio_male">Male</string>
+<string name="radio_female">Female</string>
+<string name="btn_display">Display</string>
+</resources>
