@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etName"
+        android:layout_marginRight="10dp"
+        android:text="Name :"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/name"
+        android:background="@color/editTextColor"
+        android:hint="Name"
+        android:paddingLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:text="Email :"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@id/email"
+        android:layout_alignStart="@+id/etName"
+        android:layout_below="@+id/etName"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/email"
+        android:background="@color/editTextColor"
+        android:hint="Email"
+        android:paddingLeft="10dp"
+        android:layout_alignLeft="@+id/etName"/>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/etEmail"
+        android:layout_below="@id/etEmail"
+        android:layout_marginTop="16dp"
+        android:text="ADD"
+        android:layout_alignLeft="@+id/etEmail"></Button>
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/add"
+        android:text="Show"></Button>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add"
+        android:visibility="invisible"></ListView>
+
+</RelativeLayout>
