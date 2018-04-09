@@ -1,0 +1,10 @@
+{
+    "EmployeeName": "www.javainterviewpoint.com",
+    "EmployeeId": 999,
+    "Department": [
+        "Engineering",
+        "Automobile",
+        "Manufacturing",
+        "Quality Assurance"
+    ]
+}
