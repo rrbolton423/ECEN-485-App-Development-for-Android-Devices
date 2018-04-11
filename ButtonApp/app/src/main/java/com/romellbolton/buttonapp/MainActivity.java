@@ -4,40 +4,32 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import java.util.Date;
+public class MainActivity extends Activity {
 
-public class MainActivity extends Activity implements View.OnClickListener {
-
-    // Define Button
-    Button btn;
+    // Declare Button
+    Button button;
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        // Instantiate Button
-        btn = new Button(this);
+        // Inflate the layout
+        setContentView(R.layout.activity_main);
 
-        // Set Listener on Button
-        btn.setOnClickListener(this);
+        // Initialize Button
+        button = (Button) findViewById(R.id.button1);
 
-        // Call updateTime() method on App startup
-        updateTime();
+        // Set an OnClickListener on the Button
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        // Set the View of the screen to be the Button
-        setContentView(btn);
+                // Create successful Toast message stating the button was clicked
+                Toast.makeText(MainActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public void onClick(View view) {
-
-        // Call updateTime() when the Button is clicked
-        updateTime();
-    }
-
-    private void updateTime() {
-
-        // Set the text of the current time using the Date object
-        btn.setText(new Date().toString());
-    }
 }
